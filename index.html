@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-en="Privacy Policy - SafeVault" data-ar="سياسة الخصوصية - SafeVault"></title>
     <style>
-        /* Modern & Attractive Dark Theme CSS */
+        /* Modern, Attractive & Responsive Dark Theme */
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;700&display=swap');
 
         :root {
-            --primary-color: #00E676; /* SafeVault Green */
-            --secondary-color: #00C853; /* Darker Green */
+            --primary-color: #00E676; 
+            --secondary-color: #00C853; 
             --bg-dark: #0F0F0F;
             --bg-gradient-start: #1A1A2E;
             --bg-gradient-end: #0F0F0F;
@@ -18,194 +18,187 @@
             --text-muted: #999;
             --card-bg: #1A1A2E;
             --border-color: rgba(0, 230, 118, 0.3);
-            --button-bg: var(--primary-color);
-            --button-text: #000;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         body {
-            font-family: 'Cairo', sans-serif; /* Default Arabic font */
+            font-family: 'Cairo', sans-serif;
             background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            background-attachment: fixed;
             color: var(--text-light);
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            line-height: 1.7;
-            text-align: right; /* Default for Arabic */
+            line-height: 1.8;
+            text-align: right;
         }
 
         body.en {
-            font-family: 'Poppins', sans-serif; /* English font */
+            font-family: 'Poppins', sans-serif;
             text-align: left;
         }
 
+        /* تنسيق الحاوية لتناسب الكمبيوتر والجوال */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
+            width: 95%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 40px 30px;
             background-color: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             border: 1px solid var(--border-color);
             position: relative;
         }
 
+        /* شريط تبديل اللغة */
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .lang-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .lang-button.active {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+
+        .lang-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         h1 {
             color: var(--primary-color);
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 15px;
-            display: inline-block;
-            line-height: 1.2;
+            font-size: clamp(1.8rem, 5vw, 2.8rem); /* حجم مرن */
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
         }
 
         h2 {
             color: var(--primary-color);
-            font-size: 1.8em;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         p {
-            margin-bottom: 15px;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: var(--text-light);
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
             margin-bottom: 20px;
         }
 
-        ul li {
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 10px 15px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            border-left: 3px solid var(--secondary-color);
-        }
-
-        ul li strong {
-            color: var(--primary-color);
-        }
-
-        .contact-info {
-            background-color: rgba(0, 230, 118, 0.1);
+        .content-card {
+            background: rgba(0, 0, 0, 0.2);
             padding: 25px;
-            border-radius: 10px;
-            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-right: 4px solid var(--primary-color);
+        }
+
+        body.en .content-card {
+            border-right: none;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .contact-box {
+            background: linear-gradient(45deg, rgba(0, 230, 118, 0.1), transparent);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px dashed var(--primary-color);
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        .contact-info p {
-            margin: 0;
-            font-size: 1.1em;
-            color: var(--text-light);
-        }
-
-        .contact-info strong {
+        .email-text {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.2rem;
             color: var(--primary-color);
-        }
-
-        .lang-switcher {
-            position: absolute;
-            top: 30px;
-            left: 30px; /* Adjust for LTR layout */
-            display: flex;
-            gap: 10px;
-        }
-        body.en .lang-switcher {
-            left: unset;
-            right: 30px; /* Adjust for RTL layout */
-        }
-
-        .lang-button {
-            background-color: var(--primary-color);
-            color: var(--button-text);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9em;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .lang-button:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-        .lang-button.active {
-            background-color: var(--secondary-color);
-            border: 2px solid var(--primary-color);
-            color: var(--text-light);
+            word-break: break-all; /* منع خروج الايميل عن الشاشة في الجوال */
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px;
             color: var(--text-muted);
-            font-size: 0.9em;
+            font-size: 0.9rem;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
+        /* تحسينات إضافية لشاشات الجوال الصغيرة جداً */
+        @media (max-width: 480px) {
             .container {
-                margin: 20px auto;
-                padding: 20px;
+                padding: 25px 15px;
+                margin: 10px auto;
             }
-            h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            .lang-switcher {
-                top: 20px;
-                left: 20px;
-            }
-            body.en .lang-switcher {
-                right: 20px;
+            .lang-button {
+                padding: 8px 18px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="lang-switcher">
             <button class="lang-button" id="ar-btn" onclick="setLanguage('ar')">العربية</button>
             <button class="lang-button" id="en-btn" onclick="setLanguage('en')">English</button>
         </div>
+
         <header>
-            <h1 data-en="Privacy Policy for SafeVault" data-ar="سياسة الخصوصية لتطبيق SafeVault">سياسة الخصوصية لتطبيق SafeVault</h1>
+            <h1 data-en="SafeVault Privacy Policy" data-ar="سياسة خصوصية SafeVault">سياسة خصوصية SafeVault</h1>
         </header>
 
-        <section>
-            <p data-en="At <strong>SafeVault</strong>, we prioritize your privacy and data security. This application is designed to be a secure and encrypted tool for managing your passwords." data-ar="نحن في <strong>SafeVault</strong> نضع خصوصيتك وأمان بياناتك في قمة أولوياتنا. هذا التطبيق مصمم ليكون وسيلة آمنة ومشفرة لحفظ وإدارة كلمات السر الخاصة بك.">نحن في <strong>SafeVault</strong> نضع خصوصيتك وأمان بياناتك في قمة أولوياتنا. هذا التطبيق مصمم ليكون وسيلة آمنة ومشفرة لحفظ وإدارة كلمات السر الخاصة بك.</p>
-            
-            <h2 data-en="1. Data Collection" data-ar="1. جمع البيانات">1. جمع البيانات</h2>
-            <p data-en="The SafeVault application <strong>does not collect</strong>, store, or transmit any personal data or passwords to any external servers. All operations are performed locally on your device." data-ar="تطبيق SafeVault <strong>لا يجمع</strong>، ولا يخزن، ولا يرسل أي بيانات شخصية أو كلمات سر إلى أي خوادم خارجية (Servers). جميع العمليات تتم محلياً على جهازك.">تطبيق SafeVault <strong>لا يجمع</strong>، ولا يخزن، ولا يرسل أي بيانات شخصية أو كلمات سر إلى أي خوادم خارجية (Servers). جميع العمليات تتم محلياً على جهازك.</p>
-
-            <h2 data-en="2. Data Storage and Encryption" data-ar="2. تخزين البيانات وتشفيرها">2. تخزين البيانات وتشفيرها</h2>
-            <p data-en="Your passwords are stored fully encrypted within the device's secure storage using <strong>FlutterSecureStorage</strong> technology, which ensures no other application can access your data." data-ar="يتم تخزين كلمات السر الخاصة بك بشكل مشفر تماماً داخل مساحة التخزين الآمنة للجهاز باستخدام تقنية <strong>FlutterSecureStorage</strong>، وهي تقنية تضمن عدم وصول أي تطبيق آخر لبياناتك.">يتم تخزين كلمات السر الخاصة بك بشكل مشفر تماماً داخل مساحة التخزين الآمنة للجهاز باستخدام تقنية <strong>FlutterSecureStorage</strong>، وهي تقنية تضمن عدم وصول أي تطبيق آخر لبياناتك.</p>
-
-            <h2 data-en="3. Text Processing (Realism)" data-ar="3. معالجة النصوص (الواقعية)">3. معالجة النصوص (الواقعية)</h2>
-            <p data-en="The application evaluates the strength of entered passwords. To ensure global security, the app only accepts English letters, numbers, and symbols. It does not save or process texts in other languages that might pose security vulnerabilities." data-ar="يقوم التطبيق بفحص قوة كلمات السر المدخلة. ولضمان الأمان العالمي، يقبل التطبيق الأحرف الإنجليزية والأرقام والرموز فقط، ولا يقوم بحفظ أو معالجة أي نصوص بلغات أخرى قد تسبب ثغرات أمنية.">يقوم التطبيق بفحص قوة كلمات السر المدخلة. ولضمان الأمان العالمي، يقبل التطبيق الأحرف الإنجليزية والأرقام والرموز فقط، ولا يقوم بحفظ أو معالجة أي نصوص بلغات أخرى قد تسبب ثغرات أمنية.</p>
-
-            <div class="contact-info">
-                <p data-en="For any privacy inquiries, please contact us via email:" data-ar="لأي استفسار بخصوص الخصوصية، يمكنك التواصل معنا عبر البريد الإلكتروني:">لأي استفسار بخصوص الخصوصية، يمكنك التواصل معنا عبر البريد الإلكتروني:</p>
-                <p><strong>m15660803@gmail.com</strong></p>
+        <main>
+            <div class="content-card">
+                <p data-en="At <strong>SafeVault</strong>, your privacy is our top priority. We designed this app to manage your passwords with military-grade encryption while keeping your data entirely in your hands." 
+                   data-ar="نحن في <strong>SafeVault</strong> نضع خصوصيتك في مقدمة أولوياتنا. تم تصميم هذا التطبيق لإدارة كلمات السر الخاصة بك بتشفير عالي المستوى مع إبقاء بياناتك بالكامل بين يديك."></p>
             </div>
-        </section>
+
+            <h2 data-en="1. No Data Collection" data-ar="1. عدم جمع البيانات">1. عدم جمع البيانات</h2>
+            <p data-en="SafeVault does <strong>NOT</strong> collect, share, or upload your passwords or personal info to any servers. Everything stays offline." 
+               data-ar="تطبيق SafeVault <strong>لا</strong> يقوم بجمع أو مشاركة أو رفع كلمات السر أو معلوماتك الشخصية إلى أي خوادم. كل شيء يبقى محلياً."></p>
+
+            <h2 data-en="2. Local Encryption" data-ar="2. التشفير المحلي">2. التشفير المحلي</h2>
+            <p data-en="Your data is encrypted using <strong>FlutterSecureStorage</strong>. This means only you can access your vault through your device." 
+               data-ar="يتم تشفير بياناتك باستخدام تقنية <strong>FlutterSecureStorage</strong>. هذا يعني أنك الوحيد الذي يمكنه الوصول لخزنتك من خلال جهازك."></p>
+
+            <h2 data-en="3. Language & Security" data-ar="3. اللغة والأمان">3. اللغة والأمان</h2>
+            <p data-en="To ensure global security standards, the app only processes English characters and symbols in passwords to prevent common vulnerabilities." 
+               data-ar="لضمان معايير الأمان العالمية، يعالج التطبيق الأحرف والرموز الإنجليزية فقط في كلمات السر لمنع الثغرات الشائعة."></p>
+
+            <div class="contact-box">
+                <p data-en="Questions? Contact the developer at:" data-ar="لديك استفسار؟ تواصل مع المطور عبر:"></p>
+                <span class="email-text">m15660803@gmail.com</span>
+            </div>
+        </main>
 
         <footer>
             <p data-en="© 2026 SafeVault. All rights reserved." data-ar="© 2026 SafeVault. جميع الحقوق محفوظة.">© 2026 SafeVault. جميع الحقوق محفوظة.</p>
@@ -213,46 +206,29 @@
     </div>
 
     <script>
-        // JavaScript for Language Switching
         const langData = document.querySelectorAll('[data-en], [data-ar]');
-        const html = document.querySelector('html');
         const body = document.querySelector('body');
         const titleElement = document.querySelector('title');
         const arBtn = document.getElementById('ar-btn');
         const enBtn = document.getElementById('en-btn');
 
-        // Function to set language
         function setLanguage(lang) {
-            localStorage.setItem('safevault_lang', lang); // Save preference
+            localStorage.setItem('safevault_lang', lang);
             
-            langData.forEach(element => {
-                if (lang === 'en' && element.dataset.en) {
-                    element.innerHTML = element.dataset.en;
-                } else if (lang === 'ar' && element.dataset.ar) {
-                    element.innerHTML = element.dataset.ar;
-                }
+            langData.forEach(el => {
+                el.innerHTML = (lang === 'en') ? el.dataset.en : el.dataset.ar;
             });
 
-            // Update title separately
-            if (lang === 'en' && titleElement.dataset.en) {
-                titleElement.textContent = titleElement.dataset.en;
-            } else if (lang === 'ar' && titleElement.dataset.ar) {
-                titleElement.textContent = titleElement.dataset.ar;
-            }
-
-            html.setAttribute('lang', lang);
-            body.classList.remove('ar', 'en');
-            body.classList.add(lang);
-            body.style.textAlign = (lang === 'ar') ? 'right' : 'left';
-
-            // Update active button style
-            arBtn.classList.toggle('active', lang === 'ar');
-            enBtn.classList.toggle('active', lang === 'en');
+            titleElement.textContent = (lang === 'en') ? "Privacy Policy - SafeVault" : "سياسة الخصوصية - SafeVault";
+            
+            body.className = lang;
+            arBtn.className = 'lang-button ' + (lang === 'ar' ? 'active' : '');
+            enBtn.className = 'lang-button ' + (lang === 'en' ? 'active' : '');
         }
 
-        // Load language preference on page load
+        // تشغيل اللغة المختارة تلقائياً
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('safevault_lang') || 'ar'; // Default to Arabic
+            const savedLang = localStorage.getItem('safevault_lang') || 'ar';
             setLanguage(savedLang);
         });
     </script>
