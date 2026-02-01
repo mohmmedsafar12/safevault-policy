@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Privacy Policy - SafeVault" data-ar="سياسة الخصوصية - SafeVault"></title>
+    <style>
+        /* Modern & Attractive Dark Theme CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #00E676; /* SafeVault Green */
+            --secondary-color: #00C853; /* Darker Green */
+            --bg-dark: #0F0F0F;
+            --bg-gradient-start: #1A1A2E;
+            --bg-gradient-end: #0F0F0F;
+            --text-light: #e0e0e0;
+            --text-muted: #999;
+            --card-bg: #1A1A2E;
+            --border-color: rgba(0, 230, 118, 0.3);
+            --button-bg: var(--primary-color);
+            --button-text: #000;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif; /* Default Arabic font */
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.7;
+            text-align: right; /* Default for Arabic */
+        }
+
+        body.en {
+            font-family: 'Poppins', sans-serif; /* English font */
+            text-align: left;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            display: inline-block;
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        ul li strong {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            background-color: rgba(0, 230, 118, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--primary-color);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-info p {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--text-light);
+        }
+
+        .contact-info strong {
+            color: var(--primary-color);
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 30px;
+            left: 30px; /* Adjust for LTR layout */
+            display: flex;
+            gap: 10px;
+        }
+        body.en .lang-switcher {
+            left: unset;
+            right: 30px; /* Adjust for RTL layout */
+        }
+
+        .lang-button {
+            background-color: var(--primary-color);
+            color: var(--button-text);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .lang-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        .lang-button.active {
+            background-color: var(--secondary-color);
+            border: 2px solid var(--primary-color);
+            color: var(--text-light);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .lang-switcher {
+                top: 20px;
+                left: 20px;
+            }
+            body.en .lang-switcher {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-button" id="ar-btn" onclick="setLanguage('ar')">العربية</button>
+            <button class="lang-button" id="en-btn" onclick="setLanguage('en')">English</button>
+        </div>
+        <header>
+            <h1 data-en="Privacy Policy for SafeVault" data-ar="سياسة الخصوصية لتطبيق SafeVault">سياسة الخصوصية لتطبيق SafeVault</h1>
+        </header>
+
+        <section>
+            <p data-en="At <strong>SafeVault</strong>, we prioritize your privacy and data security. This application is designed to be a secure and encrypted tool for managing your passwords." data-ar="نحن في <strong>SafeVault</strong> نضع خصوصيتك وأمان بياناتك في قمة أولوياتنا. هذا التطبيق مصمم ليكون وسيلة آمنة ومشفرة لحفظ وإدارة كلمات السر الخاصة بك.">نحن في <strong>SafeVault</strong> نضع خصوصيتك وأمان بياناتك في قمة أولوياتنا. هذا التطبيق مصمم ليكون وسيلة آمنة ومشفرة لحفظ وإدارة كلمات السر الخاصة بك.</p>
+            
+            <h2 data-en="1. Data Collection" data-ar="1. جمع البيانات">1. جمع البيانات</h2>
+            <p data-en="The SafeVault application <strong>does not collect</strong>, store, or transmit any personal data or passwords to any external servers. All operations are performed locally on your device." data-ar="تطبيق SafeVault <strong>لا يجمع</strong>، ولا يخزن، ولا يرسل أي بيانات شخصية أو كلمات سر إلى أي خوادم خارجية (Servers). جميع العمليات تتم محلياً على جهازك.">تطبيق SafeVault <strong>لا يجمع</strong>، ولا يخزن، ولا يرسل أي بيانات شخصية أو كلمات سر إلى أي خوادم خارجية (Servers). جميع العمليات تتم محلياً على جهازك.</p>
+
+            <h2 data-en="2. Data Storage and Encryption" data-ar="2. تخزين البيانات وتشفيرها">2. تخزين البيانات وتشفيرها</h2>
+            <p data-en="Your passwords are stored fully encrypted within the device's secure storage using <strong>FlutterSecureStorage</strong> technology, which ensures no other application can access your data." data-ar="يتم تخزين كلمات السر الخاصة بك بشكل مشفر تماماً داخل مساحة التخزين الآمنة للجهاز باستخدام تقنية <strong>FlutterSecureStorage</strong>، وهي تقنية تضمن عدم وصول أي تطبيق آخر لبياناتك.">يتم تخزين كلمات السر الخاصة بك بشكل مشفر تماماً داخل مساحة التخزين الآمنة للجهاز باستخدام تقنية <strong>FlutterSecureStorage</strong>، وهي تقنية تضمن عدم وصول أي تطبيق آخر لبياناتك.</p>
+
+            <h2 data-en="3. Text Processing (Realism)" data-ar="3. معالجة النصوص (الواقعية)">3. معالجة النصوص (الواقعية)</h2>
+            <p data-en="The application evaluates the strength of entered passwords. To ensure global security, the app only accepts English letters, numbers, and symbols. It does not save or process texts in other languages that might pose security vulnerabilities." data-ar="يقوم التطبيق بفحص قوة كلمات السر المدخلة. ولضمان الأمان العالمي، يقبل التطبيق الأحرف الإنجليزية والأرقام والرموز فقط، ولا يقوم بحفظ أو معالجة أي نصوص بلغات أخرى قد تسبب ثغرات أمنية.">يقوم التطبيق بفحص قوة كلمات السر المدخلة. ولضمان الأمان العالمي، يقبل التطبيق الأحرف الإنجليزية والأرقام والرموز فقط، ولا يقوم بحفظ أو معالجة أي نصوص بلغات أخرى قد تسبب ثغرات أمنية.</p>
+
+            <div class="contact-info">
+                <p data-en="For any privacy inquiries, please contact us via email:" data-ar="لأي استفسار بخصوص الخصوصية، يمكنك التواصل معنا عبر البريد الإلكتروني:">لأي استفسار بخصوص الخصوصية، يمكنك التواصل معنا عبر البريد الإلكتروني:</p>
+                <p><strong>[ضع بريدك الإلكتروني هنا]</strong></p>
+            </div>
+        </section>
+
+        <footer>
+            <p data-en="© 2024 SafeVault. All rights reserved." data-ar="© 2024 SafeVault. جميع الحقوق محفوظة.">© 2024 SafeVault. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for Language Switching
+        const langData = document.querySelectorAll('[data-en], [data-ar]');
+        const html = document.querySelector('html');
+        const body = document.querySelector('body');
+        const titleElement = document.querySelector('title');
+        const arBtn = document.getElementById('ar-btn');
+        const enBtn = document.getElementById('en-btn');
+
+        // Function to set language
+        function setLanguage(lang) {
+            localStorage.setItem('safevault_lang', lang); // Save preference
+            
+            langData.forEach(element => {
+                if (lang === 'en' && element.dataset.en) {
+                    element.innerHTML = element.dataset.en;
+                } else if (lang === 'ar' && element.dataset.ar) {
+                    element.innerHTML = element.dataset.ar;
+                }
+            });
+
+            // Update title separately
+            if (lang === 'en' && titleElement.dataset.en) {
+                titleElement.textContent = titleElement.dataset.en;
+            } else if (lang === 'ar' && titleElement.dataset.ar) {
+                titleElement.textContent = titleElement.dataset.ar;
+            }
+
+            html.setAttribute('lang', lang);
+            body.classList.remove('ar', 'en');
+            body.classList.add(lang);
+            body.style.textAlign = (lang === 'ar') ? 'right' : 'left';
+
+            // Update active button style
+            arBtn.classList.toggle('active', lang === 'ar');
+            enBtn.classList.toggle('active', lang === 'en');
+        }
+
+        // Load language preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('safevault_lang') || 'ar'; // Default to Arabic
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
